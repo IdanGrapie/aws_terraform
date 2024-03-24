@@ -12,9 +12,10 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "main-internet-gateway"
+    Name = "main-igw"
   }
 }
+
 
 resource "aws_subnet" "private1" {
   vpc_id            = aws_vpc.main.id
@@ -38,7 +39,7 @@ resource "aws_subnet" "private2" {
 
 resource "aws_subnet" "public_subnet1" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = var.public_private_subnet1_cidr
+  cidr_block        = var.public_subnet1_cidr
   availability_zone = var.public_availability_zone1
 
   tags = {
