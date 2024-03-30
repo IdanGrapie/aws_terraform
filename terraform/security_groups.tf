@@ -34,9 +34,9 @@ resource "aws_security_group" "alb_sg" {
 
 #########################################
 
-resource "aws_security_group" "eks_worker_sg" {
-  name        = "eks-worker-security-group"
-  description = "Security group for EKS worker nodes"
+resource "aws_security_group" "ecs_worker_sg" {
+  name        = "ecs-worker-security-group"
+  description = "Security group for ECS worker nodes"
   vpc_id      = aws_vpc.main.id
 
   # Allow inbound traffic from the ALB on the application port
@@ -57,7 +57,7 @@ resource "aws_security_group" "eks_worker_sg" {
   }
 
   tags = {
-    Name = "EKSWorkerSecurityGroup"
+    Name = "ECSWorkerSecurityGroup"
   }
 }
 
